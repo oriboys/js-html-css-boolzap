@@ -62,8 +62,9 @@ var nuovo = new Vue({
     utenteSelezionato: 'img/avatar_2.jpg',
     nomeSelezionato: 'Utente1',
     personaCercata: '',
-    messaggiInviati: [],
-    messaggiRicevuti:[]
+    messaggioUtente: '',
+    messaggiInviati: ['ciao', 'come stai'],
+    messaggiRicevuti:['ho da fare']
   },
   methods: {
     selezionaUtente(index){
@@ -79,6 +80,11 @@ var nuovo = new Vue({
     },
     show(){
       console.log(this.personaCercata);
-    }
+    },
+    newMessage(){
+      var parola = '';
+      parola = this.messaggioUtente;
+      this.messaggiInviati.push(parola)
+    },
   }
 });

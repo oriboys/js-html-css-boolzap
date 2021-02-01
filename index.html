@@ -81,12 +81,16 @@
     <!-- right-main -->
     <div class="right-main">
       <div class="messages">
-        <div class="row">
-          <div class="message-sent"></div>
+        <div v-for="item in messaggiInviati"class="row">
+          <div class="message-sent">
+            {{item}}
+          </div>
 
         </div>
-        <div class="row">
-          <div class="message-received"></div>
+        <div v-for="item in messaggiRicevuti" class="row">
+          <div class="message-received">
+            {{item}}
+          </div>
 
         </div>
 
@@ -97,7 +101,7 @@
       <div class="smile">
         <i class="far fa-smile"></i>
       </div>
-      <div class="text"> <input type="text" placeholder="invia un messaggio"></div>
+      <div  class="text"> <input v-model="messaggioUtente" v-on:keyup.13="newMessage" type="text" placeholder="invia un messaggio"></div>
       <div class="speak"><i class="fas fa-microphone"></i></div>
     </div>
   </div>
