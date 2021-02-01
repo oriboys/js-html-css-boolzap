@@ -58,8 +58,21 @@ var nuovo = new Vue({
         nome: 'utente14',
         avatar: 'img/avatar_8.jpg'
       }
-    ]
+    ],
+    utenteSelezionato: 'img/avatar_2.jpg',
+    nomeSelezionato: ''
   },
   methods: {
+    selezionaUtente(index){
+      var maiuscola = '';
+      var minuscola = '';
+      this.utenteSelezionato = this.utenti[index].avatar;
+      this.nomeSelezionato = this.utenti[index].nome;
+      console.log(this.utenteSelezionato);
+      maiuscola = this.nomeSelezionato.charAt(0).toUpperCase();
+      minuscola = this.nomeSelezionato.substring(1).toLowerCase();
+      this.nomeSelezionato = maiuscola + minuscola;
+      console.log(this.nomeSelezionato);
+    }
   }
 });

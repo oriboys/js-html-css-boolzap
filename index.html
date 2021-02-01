@@ -46,7 +46,7 @@
     <!-- contact-list -->
     <div class="contact-list">
       <ul class="lista-utenti">
-        <li v-for='utente in utenti'>
+        <li @click="selezionaUtente(index)" v-for='(utente, index) in utenti'>
           <img :src='utente.avatar' alt=""> <span>{{utente.nome}}</span>
         </li>
       </ul>
@@ -57,9 +57,9 @@
     <!-- right-header -->
     <div class="right-header">
       <div class="contact-data">
-        <img src="img/avatar_2.jpg" alt="">
+        <img :src="utenteSelezionato" alt="">
         <div class="contatto">
-          <span class="contact-name">Nome</span>
+          <span class="contact-name">{{nomeSelezionato}}</span>
           <span>Ulmto accesso alle ore:</span>
         </div>
       </div>
