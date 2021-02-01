@@ -82,11 +82,13 @@
     <div class="right-main">
       <div class="messages">
         <div v-for="item in utenti[indice].messaggi" class="row">
-          <div v-if="item.mittente == 'io'" :class="inviato">
-            {{item.testo}}
+          <div class="messaggio" v-if="item.mittente == 'io'" :class="inviato">
+            <p>{{item.testo}}</p>
+            <span>{{data}}</span>
           </div>
-          <div v-else-if="item.mittente == 'ricevuto'" :class="ricevuto">
-            {{item.testo}}
+          <div class="messaggio" v-else-if="item.mittente == 'ricevuto'" :class="ricevuto">
+            <p>{{item.testo}}</p>
+            <span>{{data}}</span>
           </div>
         </div>
         <!-- <div v-for="item in messaggiRicevuti" class="row">

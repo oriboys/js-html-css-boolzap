@@ -81,6 +81,7 @@ var nuovo = new Vue({
     inviato: 'message-sent',
     ricevuto: 'message-received',
     indice: '0',
+    data: '',
     messaggi: [
       {
         testo: 'ciao',
@@ -105,6 +106,14 @@ var nuovo = new Vue({
       console.log(this.personaCercata);
     },
     newMessage(){
+      var d = new Date();
+      var day = d.getDate();
+      var month = d.getMonth();
+      var year = d.getFullYear();
+      var hour = d.getHours();
+      var minutes = d.getMinutes();
+      var seconds = d.getSeconds();
+      this.data = day + '/' + (month + 1) + '/' + year + ' ' + hour + ':' + minutes + ':' + seconds;
       var parola = '';
       parola = this.messaggioUtente;
       var oggetto = {
@@ -118,6 +127,14 @@ var nuovo = new Vue({
       this.messaggioUtente= ''
     },
     messageRec(){
+      var d = new Date();
+      var day = d.getDate();
+      var month = d.getMonth();
+      var year = d.getFullYear();
+      var hour = d.getHours();
+      var minutes = d.getMinutes();
+      var seconds = d.getSeconds();
+      this.data = day + '/' + (month + 1) + '/' + year + ' ' + hour + ':' + minutes + ':' + seconds;
       var parola = '';
       parola = this.messaggioUtente;
       var oggetto = {

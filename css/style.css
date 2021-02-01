@@ -286,6 +286,18 @@ overflow-x: auto;
     margin-bottom: 20px;
 }
 
+.messaggio{
+  position: relative;
+}
+
+.messaggio span{
+  font-size: 10px;
+  position: absolute;
+  top: 75%;
+  left: 55%;
+
+}
+
 /* right-footer */
 .right-footer{
   width: 100%;
