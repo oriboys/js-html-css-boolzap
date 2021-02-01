@@ -158,6 +158,28 @@ padding-right: 10px;
   background-color: green;
 }
 
+.contact-list .lista-utenti{
+padding-top: 20px;
+padding-left: 20px;
+padding-right: 20px;
+padding-bottom: 20px;
+height: 100%;
+overflow-x: auto;
+}
+
+
+.contact-list ul li {
+  list-style: none;
+  padding-bottom: 10px;
+}
+
+.contact-list ul li img{
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
 
 
 

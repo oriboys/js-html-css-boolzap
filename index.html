@@ -16,7 +16,7 @@
 <div class="container">
   <div class="header-line"></div>
   <!-- chat-view -->
-  <div class="chat-view">
+  <div class="chat-view" id="chat-view">
     <!-- left-part -->
   <div class="left-part">
     <!-- your-id -->
@@ -45,6 +45,11 @@
     </div>
     <!-- contact-list -->
     <div class="contact-list">
+      <ul class="lista-utenti">
+        <li v-for='utente in utenti'>
+          <img :src='utente.avatar' alt=""> <span>{{utente.nome}}</span>
+        </li>
+      </ul>
     </div>
   </div>
   <!-- right-part -->
