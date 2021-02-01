@@ -4,67 +4,89 @@ var nuovo = new Vue({
     utenti: [
       {
         nome: 'utente1',
-        avatar: 'img/avatar_2.jpg'
+        avatar: 'img/avatar_2.jpg',
+        messaggi: []
       },
       {
         nome: 'utente2',
-        avatar: 'img/avatar_3.jpg'
+        avatar: 'img/avatar_3.jpg',
+        messaggi: []
+
       },
       {
         nome: 'utente3',
-        avatar: 'img/avatar_4.jpg'
+        avatar: 'img/avatar_4.jpg',
+        messaggi: []
       },
       {
         nome: 'utente4',
-        avatar: 'img/avatar_5.jpg'
+        avatar: 'img/avatar_5.jpg',
+        messaggi: []
       },
       {
         nome: 'utente5',
-        avatar: 'img/avatar_6.jpg'
+        avatar: 'img/avatar_6.jpg',
+        messaggi: []
       },
       {
         nome: 'utente6',
-        avatar: 'img/avatar_7.jpg'
+        avatar: 'img/avatar_7.jpg',
+        messaggi: []
       },
       {
         nome: 'utente7',
-        avatar: 'img/avatar_8.jpg'
+        avatar: 'img/avatar_8.jpg',
+        messaggi: []
       },
       {
         nome: 'utente8',
-        avatar: 'img/avatar_2.jpg'
+        avatar: 'img/avatar_2.jpg',
+        messaggi: []
       },
       {
         nome: 'utente9',
-        avatar: 'img/avatar_3.jpg'
+        avatar: 'img/avatar_3.jpg',
+        messaggi: []
       },
       {
         nome: 'utente10',
-        avatar: 'img/avatar_4.jpg'
+        avatar: 'img/avatar_4.jpg',
+        messaggi: []
       },
       {
         nome: 'utente11',
-        avatar: 'img/avatar_5.jpg'
+        avatar: 'img/avatar_5.jpg',
+        messaggi: []
       },
       {
         nome: 'utente12',
-        avatar: 'img/avatar_6.jpg'
+        avatar: 'img/avatar_6.jpg',
+        messaggi: []
       },
       {
         nome: 'utente13',
-        avatar: 'img/avatar_7.jpg'
+        avatar: 'img/avatar_7.jpg',
+        messaggi: []
       },
       {
         nome: 'utente14',
-        avatar: 'img/avatar_8.jpg'
+        avatar: 'img/avatar_8.jpg',
+        messaggi: []
       }
     ],
     utenteSelezionato: 'img/avatar_2.jpg',
     nomeSelezionato: 'Utente1',
     personaCercata: '',
     messaggioUtente: '',
-    messaggiInviati: ['ciao', 'come stai'],
-    messaggiRicevuti:['ho da fare']
+    inviato: 'message-sent',
+    ricevuto: 'message-received',
+    indice: '0',
+    messaggi: [
+      {
+        testo: 'ciao',
+        mittente: 'io'
+      },
+    ]
   },
   methods: {
     selezionaUtente(index){
@@ -77,6 +99,7 @@ var nuovo = new Vue({
       minuscola = this.nomeSelezionato.substring(1).toLowerCase();
       this.nomeSelezionato = maiuscola + minuscola;
       console.log(this.nomeSelezionato);
+      this.indice = index;
     },
     show(){
       console.log(this.personaCercata);
@@ -84,7 +107,28 @@ var nuovo = new Vue({
     newMessage(){
       var parola = '';
       parola = this.messaggioUtente;
-      this.messaggiInviati.push(parola)
+      var oggetto = {
+        testo: parola,
+        mittente:'io'
+      }
+      if (parola != ''){
+        this.utenti[this.indice].messaggi.push(oggetto)
+
+      }
+      this.messaggioUtente= ''
     },
+    messageRec(){
+      var parola = '';
+      parola = this.messaggioUtente;
+      var oggetto = {
+        testo: parola,
+        mittente:'ricevuto'
+      }
+        if (parola != ''){
+          this.utenti[this.indice].messaggi.push(oggetto)
+        }
+
+      this.messaggioUtente= ''
+    }
   }
 });
