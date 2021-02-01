@@ -60,7 +60,10 @@ var nuovo = new Vue({
       }
     ],
     utenteSelezionato: 'img/avatar_2.jpg',
-    nomeSelezionato: ''
+    nomeSelezionato: 'Utente1',
+    personaCercata: '',
+    messaggiInviati: [],
+    messaggiRicevuti:[]
   },
   methods: {
     selezionaUtente(index){
@@ -73,6 +76,9 @@ var nuovo = new Vue({
       minuscola = this.nomeSelezionato.substring(1).toLowerCase();
       this.nomeSelezionato = maiuscola + minuscola;
       console.log(this.nomeSelezionato);
+    },
+    show(){
+      console.log(this.personaCercata);
     }
   }
 });

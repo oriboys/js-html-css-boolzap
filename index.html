@@ -40,16 +40,25 @@
     <div class="search">
       <div class="search-bar">
         <i class="fas fa-search"></i>
-        <input type="text" name="" value="" placeholder="Cerca o inizia a scrivere una chat">
+        <input v-model="personaCercata" v-on:keyup="show" type="text" name="" value="" placeholder="Cerca o inizia a scrivere una chat">
       </div>
     </div>
     <!-- contact-list -->
     <div class="contact-list">
-      <ul class="lista-utenti">
-        <li @click="selezionaUtente(index)" v-for='(utente, index) in utenti'>
-          <img :src='utente.avatar' alt=""> <span>{{utente.nome}}</span>
-        </li>
-      </ul>
+
+        <ul class="lista-utenti" v-if="personaCercata == ''">
+          <li @click="selezionaUtente(index)" v-for='(utente, index) in utenti'>
+            <img :src='utente.avatar' alt=""> <span>{{utente.nome}}</span>
+          </li>
+        </ul>
+
+        <ul v-else class="lista-utenti">
+          <li @click="selezionaUtente(index)" v-for='(utente, index) in utenti' v-if="utente.nome.includes(personaCercata)">
+            <img :src='utente.avatar' alt=""> <span>{{utente.nome}}</span>
+          </li>
+
+        </ul>
+
     </div>
   </div>
   <!-- right-part -->
@@ -71,7 +80,17 @@
     </div>
     <!-- right-main -->
     <div class="right-main">
+      <div class="messages">
+        <div class="row">
+          <div class="message-sent"></div>
 
+        </div>
+        <div class="row">
+          <div class="message-received"></div>
+
+        </div>
+
+      </div>
     </div>
     <!-- .right-footer -->
     <div class="right-footer">

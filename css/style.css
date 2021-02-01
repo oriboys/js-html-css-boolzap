@@ -249,6 +249,42 @@ overflow-x: auto;
   background-size: cover;
   filter: grayscale(30%);
 }
+.messages{
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+.message-sent{
+  width: 200px;
+  height: 50px;
+  background-color: green;
+  float: right;
+}
+.message-received{
+  width: 200px;
+  height: 50px;
+  background-color: grey;
+  float: left;
+}
+
+/* .message-sent::after{
+  display: table;
+  content:"";
+  clear: both;
+}
+.message-received::after{
+  display: table;
+  content:"";
+  clear: both;
+} */
+
+.row::after{
+  display: table;
+  content:"";
+  clear: both;
+    margin-bottom: 20px;
+}
 
 /* right-footer */
 .right-footer{
