@@ -43,7 +43,7 @@ background-color: rgb(63, 154, 116);
 .your-id {
   width: 100%;
   height: 100px;
-  background-color: pink;
+  background-color: lightgrey;
   /* position: relative; */
   display: flex;
   justify-content: space-between;
@@ -64,16 +64,15 @@ background-color: rgb(63, 154, 116);
 .your-options{
   display: flex;
 }
-.your-options a{
+.your-options i{
   padding-left: 15px;
   line-height: 100px;
   font-size: 20px;
   color: grey;
-}
-.your-options i{
   font-size: 20px;
   color: grey;
 }
+
 
 
 /* notifications */
@@ -139,9 +138,18 @@ font-size: 14px;
  border: 0px solid white;
 }
 
-.search-bar input:focus{
- border: 0px solid white;
+/* per togliere bordo blu quando scrivo */
+.search-bar input{
+ outline: none;
 }
+
+.search-bar i{
+color: lightgrey;
+padding-left: 10px;
+padding-right: 10px;
+}
+
+
 
 /* contact-list */
 .contact-list {
@@ -157,5 +165,100 @@ font-size: 14px;
 .right-part{
   width: 65%;
   height: 100%;
-  background-color: blue;
+  /* background-color: blue; */
+}
+
+
+/* right-header */
+
+.right-header{
+    width: 100%;
+    height: 100px;
+    background-color: lightgrey;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.contact-data {
+    display: flex;
+}
+
+.contact-data img{
+  height: 70%;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-top: 15px;
+  margin-right: 10px;
+}
+
+.contatto{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contatto span:last-child{
+  font-size: 12px;
+  color: grey;
+}
+
+.right-header-options{
+  display: flex;
+}
+.right-header-options i{
+  padding-left: 15px;
+  line-height: 100px;
+  font-size: 20px;
+  color: grey;
+  font-size: 20px;
+  color: grey;
+}
+
+
+/* right-main */
+
+.right-main{
+  height: calc(100% - 200px);
+  overflow-x: scroll;
+  width: 100%;
+  background-image: url(../img/mine.jpg);
+  background-size: cover;
+  filter: grayscale(30%);
+}
+
+/* right-footer */
+.right-footer{
+  width: 100%;
+  height: 100px;
+  background-color: #e4ddd6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.smile{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+}
+
+.text {
+  flex-grow: 1;
+  height: 100%;
+
+}
+.text input{
+  margin-top: 10px;
+  width: 100%;
+  height: 80%;
+}
+
+.speak{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
 }
