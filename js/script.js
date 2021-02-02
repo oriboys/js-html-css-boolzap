@@ -82,6 +82,7 @@ var nuovo = new Vue({
     ricevuto: 'message-received',
     indice: '0',
     classe: 'none',
+    deleteMex: 'none',
     data: '',
     messaggiRisposta: [
       {
@@ -205,6 +206,17 @@ var nuovo = new Vue({
     },
     chiudiSmile(){
       this.classe = 'none'
+    },
+    apriMexMenu(index){
+      if (this.deleteMex == 'none'){
+        this.deleteMex = 'show'
+      } else{
+        this.deleteMex = 'none'
+      }
+    },
+    deleteMessage(index){
+      console.log(index);
+      this.utenti[this.indice].messaggi.splice(index,1)
     }
   }
 });
