@@ -82,7 +82,11 @@
     <div class="right-main">
       <div class="messages">
         <div v-for="item in utenti[indice].messaggi" class="row">
-          <div class="messaggio" v-if="item.mittente == 'io'" :class="inviato">
+          <div class="messaggio" v-if="item.mittente == 'io' && item.testo.includes('fa')" :class="inviato">
+            <i :class=item.testo></i>
+            <span>{{data}}</span>
+          </div>
+          <div class="messaggio" v-else-if="item.mittente == 'io'" :class="inviato">
             <p>{{item.testo}}</p>
             <span>{{data}}</span>
           </div>
@@ -102,8 +106,11 @@
     </div>
     <!-- .right-footer -->
     <div class="right-footer">
-      <div class="smile">
+      <div @mouseover="apriSmile" class="smile">
         <i class="far fa-smile"></i>
+        <div @mouseleave=" chiudiSmile" :class="classe" class="smile-menu">
+          <i  v-for="(smile, indice) in smile" :class="smile" @click='smiles(smile)'></i>
+        </div>
       </div>
       <div  class="text"> <input v-model="messaggioUtente" v-on:keyup.13="newMessage" v-on:keyup.40="messageRec" type="text" placeholder="invia un messaggio"></div>
       <div class="speak"><i class="fas fa-microphone"></i></div>

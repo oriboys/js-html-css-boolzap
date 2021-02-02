@@ -318,8 +318,28 @@ overflow-x: auto;
   justify-content: center;
   align-items: center;
   width: 50px;
+  position: relative;
 }
 
+.smile-menu{
+  width: 200px;
+  height: 200px;
+  background-color: white;
+  position: absolute;
+  bottom: 120%;
+  display: flex;
+}
+.smile-menu i {
+  width: 60px;
+  height: 60px;
+}
+
+.none{
+  display: none;
+}
+.show{
+  display: block;
+}
 .text {
   flex-grow: 1;
   height: 100%;

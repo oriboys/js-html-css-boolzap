@@ -81,6 +81,7 @@ var nuovo = new Vue({
     inviato: 'message-sent',
     ricevuto: 'message-received',
     indice: '0',
+    classe: 'none',
     data: '',
     messaggiRisposta: [
       {
@@ -99,7 +100,8 @@ var nuovo = new Vue({
         testo: 'ci sentiamo stasera',
         mittente: 'ricevuto'
       },
-    ]
+    ],
+    smile: ["fas fa-smile", "fas fa-smile-beam", "fas fa-grin-squint", "fas fa-grin-beam-sweat"]
   },
   methods: {
     selezionaUtente(index){
@@ -182,6 +184,27 @@ var nuovo = new Vue({
       }
         setTimeout(() => this.utenti[this.indice].messaggi.push(this.messaggiRisposta[random]), 1000);
         this.messaggioUtente= ''
+    },
+    smiles(smile){
+      var d = new Date();
+      var day = d.getDate();
+      var month = d.getMonth();
+      var year = d.getFullYear();
+      var hour = d.getHours();
+      var minutes = d.getMinutes();
+      var seconds = d.getSeconds();
+      this.data = day + '/' + (month + 1) + '/' + year + ' ' + hour + ':' + minutes + ':' + seconds;
+      var nuovo = {
+        testo: smile,
+        mittente: 'io'
+      }
+      this.utenti[this.indice].messaggi.push(nuovo);
+  },
+    apriSmile(){
+      this.classe = 'show'
+    },
+    chiudiSmile(){
+      this.classe = 'none'
     }
   }
 });
