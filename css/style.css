@@ -243,7 +243,8 @@ overflow-x: auto;
 
 .right-main{
   height: calc(100% - 200px);
-  overflow-x: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
   width: 100%;
   background-image: url(../img/mine.jpg);
   background-size: cover;
@@ -257,15 +258,19 @@ overflow-x: auto;
 }
 .message-sent{
   width: 200px;
-  height: 50px;
+  min-height: 50px;
   background-color: green;
   float: right;
+  word-break: break-all;
+  border-radius: 5px;
 }
 .message-received{
   width: 200px;
-  height: 50px;
+  min-height: 50px;
   background-color: grey;
   float: left;
+  word-break: break-all;
+  border-radius: 5px;
 }
 
 /* .message-sent::after{
@@ -319,11 +324,14 @@ overflow-x: auto;
   flex-grow: 1;
   height: 100%;
 
+
 }
 .text input{
   margin-top: 10px;
   width: 100%;
   height: 80%;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .speak{
