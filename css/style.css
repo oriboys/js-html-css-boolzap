@@ -138,6 +138,11 @@ font-size: 14px;
  border: 0px solid white;
 }
 
+.last-mex{
+  font-size: 12px;
+  padding-left: 50px;
+}
+
 /* per togliere bordo blu quando scrivo */
 .search-bar input{
  outline: none;

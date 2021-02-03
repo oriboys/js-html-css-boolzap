@@ -5,73 +5,87 @@ var nuovo = new Vue({
       {
         nome: 'utente1',
         avatar: 'img/avatar_2.jpg',
-        messaggi: []
+        messaggi: [],
+        last: ''
       },
       {
         nome: 'utente2',
         avatar: 'img/avatar_3.jpg',
-        messaggi: []
+        messaggi: [],
+          last: ''
 
       },
       {
         nome: 'utente3',
         avatar: 'img/avatar_4.jpg',
-        messaggi: []
+        messaggi: [],
+        last: ''
       },
       {
         nome: 'utente4',
         avatar: 'img/avatar_5.jpg',
-        messaggi: []
+        messaggi: [],
+        last: ''
       },
       {
         nome: 'utente5',
         avatar: 'img/avatar_6.jpg',
-        messaggi: []
+        messaggi: [],
+        last: ''
       },
       {
         nome: 'utente6',
         avatar: 'img/avatar_7.jpg',
-        messaggi: []
+        messaggi: [],
+        last: ''
       },
       {
         nome: 'utente7',
         avatar: 'img/avatar_8.jpg',
-        messaggi: []
+        messaggi: [],
+        last: ''
       },
       {
         nome: 'utente8',
         avatar: 'img/avatar_2.jpg',
-        messaggi: []
+        messaggi: [],
+        last: ''
       },
       {
         nome: 'utente9',
         avatar: 'img/avatar_3.jpg',
-        messaggi: []
+        messaggi: [],
+        last: ''
       },
       {
         nome: 'utente10',
         avatar: 'img/avatar_4.jpg',
-        messaggi: []
+        messaggi: [],
+        last: ''
       },
       {
         nome: 'utente11',
         avatar: 'img/avatar_5.jpg',
-        messaggi: []
+        messaggi: [],
+        last: ''
       },
       {
         nome: 'utente12',
         avatar: 'img/avatar_6.jpg',
-        messaggi: []
+        messaggi: [],
+        last: ''
       },
       {
         nome: 'utente13',
         avatar: 'img/avatar_7.jpg',
-        messaggi: []
+        messaggi: [],
+        last: ''
       },
       {
         nome: 'utente14',
         avatar: 'img/avatar_8.jpg',
-        messaggi: []
+        messaggi: [],
+        last: ''
       }
     ],
     utenteSelezionato: 'img/avatar_2.jpg',
@@ -181,6 +195,7 @@ var nuovo = new Vue({
       }
       if (parola != ''){
         this.utenti[this.indice].messaggi.push(oggetto)
+        this.utenti[this.indice].last = this.data;
 
       }
         setTimeout(() => this.utenti[this.indice].messaggi.push(this.messaggiRisposta[random]), 1000);
@@ -208,11 +223,12 @@ var nuovo = new Vue({
       this.classe = 'none'
     },
     apriMexMenu(index){
-      if (this.deleteMex == 'none'){
-        this.deleteMex = 'show'
-      } else{
-        this.deleteMex = 'none'
-      }
+      // if (this.deleteMex == 'none'){
+      //   this.deleteMex = 'show'
+      // } else{
+      //   this.deleteMex = 'none'
+      // }
+      console.log(index);
     },
     deleteMessage(index){
       console.log(index);

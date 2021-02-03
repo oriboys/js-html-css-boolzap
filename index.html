@@ -48,7 +48,7 @@
 
         <ul class="lista-utenti" v-if="personaCercata == ''">
           <li @click="selezionaUtente(index)" v-for='(utente, index) in utenti'>
-            <img :src='utente.avatar' alt=""> <span>{{utente.nome}}</span>
+            <img :src='utente.avatar' alt=""> <span>{{utente.nome}}</span> <span class="last-mex">{{utente.last}}</span>
           </li>
         </ul>
 
