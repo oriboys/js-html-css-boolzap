@@ -95,7 +95,7 @@
           <div class="messaggio" v-else-if="item.mittente == 'ricevuto'" :class="ricevuto">
             <p>{{item.testo}}</p>
             <span>{{data}}</span>
-            <span class="menu-mex"><i @click="apriMexMenu" class="fas fa-chevron-down"></i>  <div :class="deleteMex" class="menu-elimina">elimina <i @click="deleteMessage(index)" class="fas fa-trash"></i></div></span>
+            <span @click="apriMexMenu(index)" class="menu-mex"><i class="fas fa-chevron-down"></i>  <div  :class="deleteMex"class="menu-elimina ">elimina <i @click="deleteMessage(index)" class="fas fa-trash"></i></div></span>
           </div>
         </div>
         <!-- <div v-for="item in messaggiRicevuti" class="row">

@@ -191,14 +191,18 @@ var nuovo = new Vue({
       parola = this.messaggioUtente;
       var oggetto = {
         testo: parola,
-        mittente:'io'
+        mittente:'io',
       }
       if (parola != ''){
         this.utenti[this.indice].messaggi.push(oggetto)
         this.utenti[this.indice].last = this.data;
 
       }
+      // fare arrow function perche uso this, la funzione normale devo usare self al posto del this
         setTimeout(() => this.utenti[this.indice].messaggi.push(this.messaggiRisposta[random]), 1000);
+        // setTimeout(function(){
+        //   self.utenti[self.indice].messaggi.push(self.messaggiRisposta[random])
+        // })
         this.messaggioUtente= ''
     },
     smiles(smile){
@@ -223,12 +227,14 @@ var nuovo = new Vue({
       this.classe = 'none'
     },
     apriMexMenu(index){
-      // if (this.deleteMex == 'none'){
-      //   this.deleteMex = 'show'
-      // } else{
-      //   this.deleteMex = 'none'
-      // }
-      console.log(index);
+      if (this.deleteMex == 'none'){
+        this.deleteMex = 'show'
+      } else{
+        this.deleteMex = 'none'
+      }
+
+
+
     },
     deleteMessage(index){
       console.log(index);
