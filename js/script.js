@@ -6,86 +6,100 @@ var nuovo = new Vue({
         nome: 'utente1',
         avatar: 'img/avatar_2.jpg',
         messaggi: [],
-        last: ''
+        last: '',
+        lastMex: ''
       },
       {
         nome: 'utente2',
         avatar: 'img/avatar_3.jpg',
         messaggi: [],
-          last: ''
+          last: '',
+          lastMex: ''
 
       },
       {
         nome: 'utente3',
         avatar: 'img/avatar_4.jpg',
         messaggi: [],
-        last: ''
+        last: '',
+        lastMex: ''
       },
       {
         nome: 'utente4',
         avatar: 'img/avatar_5.jpg',
         messaggi: [],
-        last: ''
+        last: '',
+        lastMex: ''
       },
       {
         nome: 'utente5',
         avatar: 'img/avatar_6.jpg',
         messaggi: [],
-        last: ''
+        last: '',
+        lastMex: ''
       },
       {
         nome: 'utente6',
         avatar: 'img/avatar_7.jpg',
         messaggi: [],
-        last: ''
+        last: '',
+        lastMex: ''
       },
       {
         nome: 'utente7',
         avatar: 'img/avatar_8.jpg',
         messaggi: [],
-        last: ''
+        last: '',
+        lastMex: ''
       },
       {
         nome: 'utente8',
         avatar: 'img/avatar_2.jpg',
         messaggi: [],
-        last: ''
+        last: '',
+        lastMex: ''
       },
       {
         nome: 'utente9',
         avatar: 'img/avatar_3.jpg',
         messaggi: [],
-        last: ''
+        last: '',
+        lastMex: ''
       },
       {
         nome: 'utente10',
         avatar: 'img/avatar_4.jpg',
         messaggi: [],
-        last: ''
+        last: '',
+        lastMex: ''
       },
       {
         nome: 'utente11',
         avatar: 'img/avatar_5.jpg',
         messaggi: [],
-        last: ''
+        last: '',
+        lastMex: ''
       },
       {
         nome: 'utente12',
         avatar: 'img/avatar_6.jpg',
         messaggi: [],
-        last: ''
+        last: '',
+        lastMex: ''
       },
       {
         nome: 'utente13',
         avatar: 'img/avatar_7.jpg',
         messaggi: [],
-        last: ''
+        last: '',
+        lastMex: ''
       },
       {
         nome: 'utente14',
         avatar: 'img/avatar_8.jpg',
         messaggi: [],
-        last: ''
+        last: '',
+        lastMex: ''
       }
     ],
     utenteSelezionato: 'img/avatar_2.jpg',
@@ -98,22 +112,27 @@ var nuovo = new Vue({
     classe: 'none',
     deleteMex: 'none',
     data: '',
+    lastMex: '',
     messaggiRisposta: [
       {
         testo: 'ciao',
-        mittente: 'ricevuto'
+        mittente: 'ricevuto',
+        menu: 'none'
       },
       {
         testo: 'scusa non posso parlare',
-        mittente: 'ricevuto'
+        mittente: 'ricevuto',
+        menu:'none'
       },
       {
         testo: 'sono a lavoro',
-        mittente: 'ricevuto'
+        mittente: 'ricevuto',
+        menu:'none'
       },
       {
         testo: 'ci sentiamo stasera',
-        mittente: 'ricevuto'
+        mittente: 'ricevuto',
+        menu:'none'
       },
     ],
     smile: ["fas fa-smile", "fas fa-smile-beam", "fas fa-grin-squint", "fas fa-grin-beam-sweat"]
@@ -168,7 +187,8 @@ var nuovo = new Vue({
       parola = this.messaggioUtente;
       var oggetto = {
         testo: parola,
-        mittente:'ricevuto'
+        mittente:'ricevuto',
+        menu: 'none'
       }
         if (parola != ''){
           this.utenti[this.indice].messaggi.push(oggetto)
@@ -186,20 +206,24 @@ var nuovo = new Vue({
       var minutes = d.getMinutes();
       var seconds = d.getSeconds();
       this.data = day + '/' + (month + 1) + '/' + year + ' ' + hour + ':' + minutes + ':' + seconds;
+      this.lastMex =  hour + ':' + minutes + ':' + seconds;
       var random = Math.floor(Math.random()*4);
+      var sistema = this.messaggiRisposta[random];
       var parola = '';
       parola = this.messaggioUtente;
       var oggetto = {
         testo: parola,
         mittente:'io',
+        menu:'none'
       }
       if (parola != ''){
         this.utenti[this.indice].messaggi.push(oggetto)
         this.utenti[this.indice].last = this.data;
 
+
       }
       // fare arrow function perche uso this, la funzione normale devo usare self al posto del this
-        setTimeout(() => this.utenti[this.indice].messaggi.push(this.messaggiRisposta[random]), 1000);
+        setTimeout(() => this.utenti[this.indice].messaggi.push(sistema), 1000);
         // setTimeout(function(){
         //   self.utenti[self.indice].messaggi.push(self.messaggiRisposta[random])
         // })
@@ -216,7 +240,8 @@ var nuovo = new Vue({
       this.data = day + '/' + (month + 1) + '/' + year + ' ' + hour + ':' + minutes + ':' + seconds;
       var nuovo = {
         testo: smile,
-        mittente: 'io'
+        mittente: 'io',
+        menu:'none'
       }
       this.utenti[this.indice].messaggi.push(nuovo);
   },
@@ -227,13 +252,11 @@ var nuovo = new Vue({
       this.classe = 'none'
     },
     apriMexMenu(index){
-      if (this.deleteMex == 'none'){
-        this.deleteMex = 'show'
+      if (this.utenti[this.indice].messaggi[index].menu == 'none'){
+        this.utenti[this.indice].messaggi[index].menu = 'show'
       } else{
-        this.deleteMex = 'none'
+        this.utenti[this.indice].messaggi[index].menu = 'none'
       }
-
-
 
     },
     deleteMessage(index){
