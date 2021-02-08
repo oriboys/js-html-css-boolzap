@@ -143,6 +143,7 @@ var nuovo = new Vue({
       var minuscola = '';
       this.utenteSelezionato = this.utenti[index].avatar;
       this.nomeSelezionato = this.utenti[index].nome;
+      this.lastMex = this.utenti[index].last;
       console.log(this.utenteSelezionato);
       maiuscola = this.nomeSelezionato.charAt(0).toUpperCase();
       minuscola = this.nomeSelezionato.substring(1).toLowerCase();
@@ -214,16 +215,25 @@ var nuovo = new Vue({
       var oggetto = {
         testo: parola,
         mittente:'io',
-        menu:'none'
+        menu:'none',
+        last: this.lastMex
+      };
+      var risposta = {
+        testo: sistema.testo,
+        mittente:'ricevuto',
+        menu:'none',
+          last: this.lastMex
       }
+
       if (parola != ''){
-        this.utenti[this.indice].messaggi.push(oggetto)
+        this.utenti[this.indice].messaggi.push(oggetto);
         this.utenti[this.indice].last = this.data;
 
 
       }
       // fare arrow function perche uso this, la funzione normale devo usare self al posto del this
-        setTimeout(() => this.utenti[this.indice].messaggi.push(sistema), 1000);
+        setTimeout(() => this.utenti[this.indice].messaggi.push(risposta), 1000);
+        console.log(this.utenti[this.indice].messaggi);
         // setTimeout(function(){
         //   self.utenti[self.indice].messaggi.push(self.messaggiRisposta[random])
         // })
@@ -257,6 +267,9 @@ var nuovo = new Vue({
       } else{
         this.utenti[this.indice].messaggi[index].menu = 'none'
       }
+      // console.log(index);
+      // console.log(this.utenti[this.indice].messaggi);
+      console.log(this.indice);
 
     },
     deleteMessage(index){

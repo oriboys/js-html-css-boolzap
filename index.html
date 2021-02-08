@@ -69,7 +69,7 @@
         <img :src="utenteSelezionato" alt="">
         <div class="contatto">
           <span class="contact-name">{{nomeSelezionato}}</span>
-          <span>Ultimo accesso alle ore:</span>
+          <span>Ultimo accesso alle ore: {{lastMex}}</span>
         </div>
       </div>
       <div class="right-header-options">
@@ -84,17 +84,17 @@
         <div v-for="(item, index) in utenti[indice].messaggi" class="row">
           <div class="messaggio" v-if="item.mittente == 'io' && item.testo.includes('fa')" :class="inviato">
             <i :class=item.testo></i>
-            <span>{{lastMex}}</span>
+            <span>{{item.last}}</span>
             <span class="menu-mex"><i @click="apriMexMenu(index)" class="fas fa-chevron-down"></i>  <div :class="item.menu" class="menu-elimina">elimina <i @click="deleteMessage(index)" class="fas fa-trash"></i></div></span>
           </div>
           <div class="messaggio" v-else-if="item.mittente == 'io'" :class="inviato">
             <p>{{item.testo}} </p>
-            <span>{{lastMex}}</span>
+            <span>{{item.last}}</span>
             <span class="menu-mex"><i @click="apriMexMenu(index)" class="fas fa-chevron-down"></i>  <div :class="item.menu" class="menu-elimina">elimina <i @click="deleteMessage(index)" class="fas fa-trash"></i></div></span>
           </div>
           <div class="messaggio" v-else-if="item.mittente == 'ricevuto'" :class="ricevuto">
             <p>{{item.testo}}</p>
-            <span>{{lastMex}}</span>
+            <span>{{item.last}}</span>
             <span @click="apriMexMenu(index)" class="menu-mex"><i class="fas fa-chevron-down"></i>  <div  :class="item.menu" class="menu-elimina ">elimina <i @click="deleteMessage(index)" class="fas fa-trash"></i></div></span>
           </div>
         </div>
